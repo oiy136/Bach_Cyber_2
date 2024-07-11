@@ -135,24 +135,27 @@ Il ne reste plus qu' a mettre cette ligne et de sauvegarder.
 ### A l’aide de Fail2ban, traiter les logs enregistrés afin que: 
 ?	Plus de 5 tentatives échouées de connexions à un compte user (ftp ou ssh) 
 Dans la partie [Default] je change les parametres suivant : 
+```
 bantime  = 15m
 maxretry = 5
-
+```
 ?	Plus de 10 requêtes via la même IP à destination du serveur FTP
 On crée une nouvelle partie [FTP-dix] les parametres suivant : 
-
+```
 enabled = true
 port = ftp
 maxretry = 10
 findtime = 15m
 bantime = 25m
-
+```
 ?	Plus de 20 demandes de connexion au serveur FTP même d’utilisateurs différents en 5 minutes
 soit interprété comme un signe de TBF (Tentative de Brute Force).
 
 Dans la partie [FTP-vingt] je change les parametres suivant : 
 
+```
 enabled = True
 bantime  = 55m
 findtime  = 5m
 maxtry = 20
+```
