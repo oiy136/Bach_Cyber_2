@@ -89,6 +89,7 @@ ________________________________________
 ### Sur votre machine virtuelle, installez un serveur web (apache2) et le SSH.
 
 ### Après avoir vérifié que tout fonctionne bien, supprimer toutes les règles de votre firewall:
+```
 iptables -F
 iptables -X
 iptables -t nat -F
@@ -98,7 +99,7 @@ iptables -t mangle -X
 iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
-
+```
 ### et vérifier que la commande  iptables -nvL ne renvoi rien.
 
 ### A présent, recréez chacune des règles nécessaires pour que le serveur fonctionne (connexion ssh et serveur web).
@@ -112,22 +113,18 @@ iptables -P OUTPUT ACCEPT
 Une fois logwatch installé je vais editer le fichier /etc/logwatch/conf/logwatch.conf
 
 je modifie les arguments suivants : 
+```
 Output = file # Choisir d ecrire les logs dans un fichier
 Filename = /tmp/logwatch # Choix de l emplacement du fichier contenant les logs
-Detail = High # Mettre le verbose au maximum
+Detail = High # Mettre le verbose au maximum```
 
 Pour que les logs soient enregistrée toute les 24h nous devons ajouter une tache chronologique avec la commande suivante :
 
-sudo crontab –e
+```sudo crontab –e```
 
 Il ne reste plus qu' a mettre cette ligne et de sauvegarder.
 
-0 0 * * * logwatch
-
-
-
-
-
+```0 0 * * * logwatch```
 
 
 
