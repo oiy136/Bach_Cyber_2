@@ -116,7 +116,8 @@ je modifie les arguments suivants :
 ```
 Output = file # Choisir d ecrire les logs dans un fichier
 Filename = /tmp/logwatch # Choix de l emplacement du fichier contenant les logs
-Detail = High # Mettre le verbose au maximum```
+Detail = High # Mettre le verbose au maximum
+```
 
 Pour que les logs soient enregistrée toute les 24h nous devons ajouter une tache chronologique avec la commande suivante :
 
@@ -124,14 +125,15 @@ Pour que les logs soient enregistrée toute les 24h nous devons ajouter une tach
 
 Il ne reste plus qu' a mettre cette ligne et de sauvegarder.
 
-```0 0 * * * logwatch```
+``` 0 0 * * * logwatch ```
 
 
 
 ## Partie 3
 ### A l’aide de Fail2ban, traiter les logs enregistrés afin que: 
 ?	Plus de 5 tentatives échouées de connexions à un compte user (ftp ou ssh) 
-Dans la partie [Default] je change les parametres suivant : 
+Dans la partie [Default] je change les parametres suivant :
+
 ```
 bantime  = 15m
 maxretry = 5
