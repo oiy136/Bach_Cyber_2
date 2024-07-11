@@ -1,9 +1,3 @@
-![](https://hedgedoc.raltheo.fr/uploads/d4cc14a2-7238-4b05-967c-f366c4e17a37.JPG =15x)
-![](https://hedgedoc.raltheo.fr/uploads/a3ba1edd-f201-472d-b8f7-a11bdb12b280.JPG =15x)
-![](https://hedgedoc.raltheo.fr/uploads/d30f2ece-f569-4394-86ad-00cfd28e560d.JPG =15x)
-![](https://hedgedoc.raltheo.fr/uploads/e1bd723c-fe29-4012-870f-8e10f13d907e.JPG =15x)
-
-
 # Système
 ________________________________________
 ## Question 1
@@ -141,18 +135,20 @@ bantime  = 15m
 maxretry = 5
 
 ?	Plus de 10 requêtes via la même IP à destination du serveur FTP
-Dans la partie [Proftpd] je change les parametres suivant : 
+On crée une nouvelle partie [FTP-dix] les parametres suivant : 
 
-enabled = True
-bantime  = 15m
-findtime  = 10m
+enabled = true
+port = ftp
 maxretry = 10
+findtime = 15m
+bantime = 25m
 
 ?	Plus de 20 demandes de connexion au serveur FTP même d’utilisateurs différents en 5 minutes
-Dans la partie [Proftpd] je change les parametres suivant : 
+soit interprété comme un signe de TBF (Tentative de Brute Force).
+
+Dans la partie [FTP-vingt] je change les parametres suivant : 
 
 enabled = True
-bantime  = 15m
+bantime  = 55m
 findtime  = 5m
 maxtry = 20
-soit interprété comme un signe de TBF (Tentative de Brute Force).
